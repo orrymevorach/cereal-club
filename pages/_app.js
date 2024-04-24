@@ -1,33 +1,17 @@
 import '../styles/globals.css';
-import { useState } from 'react';
+import { WindowSizeProvider } from '@/context/window-size-context/window-size-context';
+// import GoogleAnalytics from '@/components/shared/google-analytics/google-analytics';
+
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
-import PageNotFound from './404';
-import PasswordProtectionTakeover from '@/components/password-protection-takeover/password-protection-takeover';
-import GoogleAnalytics from '@/components/shared/google-analytics/google-analytics';
-import { ConfigProvider } from '@/context/config-context/config-context';
-import { WindowSizeProvider } from '@/context/window-size-context/window-size-context';
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }) {
-  const { isPagePublished, isPasswordProtected } = pageProps;
-  const [showPasswordProtectionTakeover, setShowPasswordProtectionTakeover] =
-    useState(true);
-
-  if (!isPagePublished) return <PageNotFound />;
-  if (isPasswordProtected && showPasswordProtectionTakeover)
-    return (
-      <PasswordProtectionTakeover
-        setShowPasswordProtectionTakeover={setShowPasswordProtectionTakeover}
-      />
-    );
   return (
     <>
-      <GoogleAnalytics />
+      {/* <GoogleAnalytics /> */}
       <WindowSizeProvider>
-        <ConfigProvider>
-          <Component {...pageProps} />
-        </ConfigProvider>
+        <Component {...pageProps} />
       </WindowSizeProvider>
     </>
   );

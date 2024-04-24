@@ -1,28 +1,19 @@
 @mixin fontPrimary {
-  font-family: 'Adieu Bold';
+  font-family: 'Inter Regular';
   text-transform: uppercase;
 }
 
-@mixin fontSecondaryLight {
+@mixin fontPrimaryLight {
   font-family: 'Inter Light';
   letter-spacing: 0.5px;
 }
 
-@mixin fontSecondary {
-  font-family: 'Inter Regular';
-  letter-spacing: 0.5px;
-}
-
-@mixin fontSecondaryMedium {
+@mixin fontPrimaryMedium {
   font-family: 'Inter Medium';
   letter-spacing: 0.5px;
 }
 
-@mixin fontSecondaryBold {
+@mixin fontPrimaryBold {
   font-family: 'Inter Bold';
   letter-spacing: 0.5px;
-}
-
-@mixin Natural {
-  font-family: 'Natural';
 }
