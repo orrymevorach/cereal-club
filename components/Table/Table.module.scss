@@ -3,6 +3,9 @@
 
 .container {
   margin-top: 40px;
+  width: 1280px;
+  // overflow-x: scroll;
+  margin: 0 auto;
 }
 
 .innerContainer {
@@ -100,6 +103,7 @@ td.namesColumn {
 @media screen and (max-width: variables.$mobile) {
   .container {
     overflow-x: scroll;
+    width: 100%;
   }
   .innerContainer {
     width: 800px;
