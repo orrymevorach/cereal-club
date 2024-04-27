@@ -36,7 +36,7 @@ export default function Home({ userCerealSelectionRecords }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const airtableBase = new Airtable({
     apiKey: process.env.NEXT_PUBLIC_AIRTABLE_PAT,
   }).base(process.env.NEXT_PUBLIC_AIRTABLE_BASE);
