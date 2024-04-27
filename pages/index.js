@@ -5,28 +5,29 @@ import Airtable from 'airtable';
 import { useEffect } from 'react';
 
 export default function Home({ userCerealSelectionRecords }) {
-  useEffect(() => {
-    const getNutrition = async () => {
-      try {
-        const nutrition = await fetch(
-          'https://trackapi.nutritionix.com/v2/search/instant?query=hamburger',
-          {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              'x-app-id': `d2fa8d42`,
-              'x-app-key': `${process.env.NEXT_PUBLIC_NUTRITIONIX_API_KEY}`,
-            },
-          }
-        );
+  // useEffect(() => {
+  //   const getNutrition = async () => {
+  //     try {
+  //       const nutrition = await fetch(
+  //         'https://trackapi.nutritionix.com/v2/search/instant?query=hamburger',
+  //         {
+  //           method: 'GET',
+  //           headers: {
+  //             'Content-Type': 'application/json',
+  //             'x-app-id': `d2fa8d42`,
+  //             'x-app-key': `${process.env.NEXT_PUBLIC_NUTRITIONIX_API_KEY}`,
+  //             'x-remote-user-id': 0,
+  //           },
+  //         }
+  //       );
 
-        console.log('nutrition', nutrition);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    getNutrition();
-  });
+  //       console.log('nutrition', nutrition);
+  //     } catch (error) {
+  //       console.log(error.message);
+  //     }
+  //   };
+  //   getNutrition();
+  // });
   return (
     <>
       <Meta />

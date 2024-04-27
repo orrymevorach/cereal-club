@@ -4,7 +4,7 @@ import styles from './Table.module.scss';
 
 const filterNonCerealFields = cereals => {
   return Object.entries(cereals).filter(([key]) => {
-    if (key === 'Member Id' || key === 'User Name') {
+    if (key === 'Member Id' || key === 'User Name' || key === 'Record Id') {
       return false;
     }
     return true;
@@ -20,6 +20,7 @@ export default function Table({
     : [];
 
   if (!userCerealSelectionRecords.length) return <Loader />;
+
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
@@ -53,8 +54,9 @@ export default function Table({
                           {editScores ? (
                             <input
                               type="number"
-                              defaultValue={parseInt(cerealRating)}
+                              defaultValue={parseFloat(cerealRating)}
                               className={styles.input}
+                              id={`rating-${currentSelectionFields['User Name']}-${cerealName}`}
                             />
                           ) : (
                             <p>{cerealRating}</p>
