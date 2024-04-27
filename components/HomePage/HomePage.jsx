@@ -7,7 +7,7 @@ import styles from './HomePage.module.scss';
 import { useState } from 'react';
 import Takeover from '../shared/takeover/takeover';
 
-export default function HomePage() {
+export default function HomePage({ userCerealSelectionRecords }) {
   const [showAddCerealTakeover, setShowAddCerealTakeover] = useState(false);
   const [editScores, setEditScores] = useState(false);
   return (
@@ -36,7 +36,10 @@ export default function HomePage() {
           Edit Scores
         </Button>
       </div>
-      <Table editScores={editScores} />
+      <Table
+        userCerealSelectionRecords={userCerealSelectionRecords}
+        editScores={editScores}
+      />
     </div>
   );
 }
