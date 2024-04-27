@@ -1,4 +1,4 @@
-import Button from '@/components/shared/Button/Button';
+import Button from '@/components/shared/Button.jsx/Button';
 import Input from '@/components/shared/input/input';
 import {
   createField,

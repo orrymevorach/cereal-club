@@ -1,5 +1,5 @@
 import AddCerealForm from '@/components/AddCerealForm/AddCerealForm';
-import Button from '@/components/shared/Button/Button';
+import Button from '@/components/shared/Button.jsx/Button';
 import Table from '@/components/Table/Table';
 import { faEdit, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
