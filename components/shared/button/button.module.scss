@@ -2,7 +2,7 @@
 @use '@variables' as variables;
 
 .button {
-  @include mixins.fontSecondary;
+  @include mixins.fontPrimary;
   color: white;
   border: none;
   padding: 12px 25px;
@@ -40,10 +40,10 @@
   &.small {
     padding: 12px 10px 10px 10px;
     min-width: 80px;
-    @include mixins.fontSecondaryLight;
+    @include mixins.fontPrimaryLight;
     margin-top: 10px;
     &:hover {
-      @include mixins.fontSecondary;
+      @include mixins.fontPrimary;
     }
   }
   svg {
@@ -51,10 +51,10 @@
     top: -2px;
   }
   &.secondary {
-    background-color: variables.$green;
+    background-color: variables.$charcoal;
     border: none;
     color: variables.$black;
-    border: 1px solid variables.$green;
+    border: 1px solid variables.$charcoal;
     &:hover {
       background-color: #474747;
       color: white;
@@ -62,34 +62,10 @@
   }
   &.secondary.inverted {
     background-color: variables.$black;
-    border: 1px solid variables.$green;
+    border: 1px solid variables.$charcoal;
     color: white;
     &:hover {
       background-color: rgba(white, 0.2);
-    }
-  }
-  &.yellow {
-    background-color: variables.$black;
-    color: white;
-    border: 1px solid variables.$yellow;
-    &:hover {
-      background-color: rgba(white, 0.2);
-    }
-    &:hover p,
-    &:hover svg {
-      color: white;
-    }
-  }
-  &.peach {
-    background-color: variables.$black;
-    color: white;
-    border: 1px solid variables.$peach;
-    &:hover {
-      background-color: rgba(white, 0.2);
-    }
-    &:hover p,
-    &:hover svg {
-      color: white;
     }
   }
 }

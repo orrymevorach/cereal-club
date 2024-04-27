@@ -8,7 +8,7 @@
   align-content: center;
   height: 100vh;
   width: 100%;
-  @include mixins.fontSecondaryBold;
+  @include mixins.fontPrimaryBold;
   color: variables.$black;
   top: 0;
   left: 0;

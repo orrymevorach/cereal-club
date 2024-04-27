@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import styles from './button.module.scss';
+import styles from './Button.module.scss';
 import Link from 'next/link';
 import clsx from 'clsx';
 
@@ -26,20 +26,12 @@ export default function Button({
   isLight = false,
   isAnchor = false,
   isSmall = false,
-  isInverted = false,
-  isSecondary = false,
-  isYellow = false,
-  isPeach = false,
 }) {
   const classnames = clsx(
     styles.button,
     classNames,
     isLight && styles.light,
-    isSmall && styles.small,
-    isInverted && styles.inverted,
-    isSecondary && styles.secondary,
-    isYellow && styles.yellow,
-    isPeach && styles.peach
+    isSmall && styles.small
   );
 
   if (isAnchor) {

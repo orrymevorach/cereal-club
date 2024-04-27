@@ -22,7 +22,7 @@
 }
 
 .column {
-  @include mixins.fontSecondary;
+  @include mixins.fontPrimary;
   .contactUs {
     margin-left: 80px;
   }

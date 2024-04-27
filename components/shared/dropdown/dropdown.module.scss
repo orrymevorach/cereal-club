@@ -22,7 +22,7 @@
 }
 
 .heading {
-  @include mixins.fontSecondary;
+  @include mixins.fontPrimary;
   text-align: center;
   font-size: 22px;
   color: white;
