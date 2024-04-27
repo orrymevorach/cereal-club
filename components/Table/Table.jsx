@@ -14,7 +14,7 @@ const filterNonCerealFields = cereals => {
   });
 };
 
-export default function Table() {
+export default function Table({ editScores = false }) {
   const [cerealSelections, setCerealSelections] = useState([]);
 
   useEffect(() => {
@@ -62,7 +62,15 @@ export default function Table() {
                         <td
                           key={`${currentSelectionFields.userName}-${cerealName}-${cerealRating}`}
                         >
-                          <p>{cerealRating}</p>
+                          {editScores ? (
+                            <input
+                              type="number"
+                              defaultValue={parseInt(cerealRating)}
+                              className={styles.input}
+                            />
+                          ) : (
+                            <p>{cerealRating}</p>
+                          )}
                         </td>
                       );
                     }

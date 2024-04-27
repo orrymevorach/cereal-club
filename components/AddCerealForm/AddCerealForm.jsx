@@ -11,9 +11,11 @@ import { AIRTABLE_TABLE_IDS } from '@/utils/constants';
 
 export default function AddCerealForm() {
   const [cerealName, setCerealName] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmitForm = async e => {
     e.preventDefault();
+    setIsLoading(true);
     await createField({
       name: cerealName,
       type: 'number',
@@ -32,6 +34,7 @@ export default function AddCerealForm() {
         });
       })
     );
+    window.location.reload();
   };
 
   return (
@@ -40,9 +43,11 @@ export default function AddCerealForm() {
         value={cerealName}
         label="Add A New Cereal"
         handleChange={e => setCerealName(e.target.value)}
-        classNames={styles.input}
+        inputContainerClassNames={styles.input}
       />
-      <Button isLight>Submit</Button>
+      <Button isLight isLoading={isLoading}>
+        Submit
+      </Button>
     </form>
   );
 }

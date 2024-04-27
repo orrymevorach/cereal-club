@@ -35,8 +35,9 @@
   }
   td {
     height: 65px;
-    width: 250px;
+    width: 100px;
     text-align: center;
+    padding: 0 10px;
   }
   thead tr:hover {
     background: none;
@@ -53,9 +54,24 @@
   margin-right: 10px;
 }
 
-.namesColumn {
+td.namesColumn {
   display: flex;
   align-items: center;
+  width: 250px;
+  text-transform: capitalize;
+}
+
+.input {
+  @include mixins.fontPrimary;
+  text-align: center;
+  border-radius: 10px;
+  padding: 12px 0;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  margin: 0 auto;
+  font-size: 14px;
 }
 
 // .buttonsContainer {

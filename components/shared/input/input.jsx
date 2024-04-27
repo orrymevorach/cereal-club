@@ -13,9 +13,10 @@ export default function Input({
   labelClassNames = '',
   placeholder = '',
   required = false,
+  inputContainerClassNames = '',
 }) {
   return (
-    <div className={styles.inputContainer}>
+    <div className={clsx(styles.inputContainer, inputContainerClassNames)}>
       <label htmlFor={id} className={clsx(styles.label, labelClassNames)}>
         {label}
       </label>
