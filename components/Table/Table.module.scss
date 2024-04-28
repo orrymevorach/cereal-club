@@ -41,6 +41,7 @@
     width: 155px;
     text-align: center;
     padding: 0 10px;
+    text-transform: capitalize;
   }
   thead tr:hover {
     background: none;
@@ -61,7 +62,6 @@ td.namesColumn {
   display: flex;
   align-items: center;
   width: 250px;
-  text-transform: capitalize;
 }
 
 .input {

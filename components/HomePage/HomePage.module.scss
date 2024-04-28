@@ -1,3 +1,5 @@
+@use '@variables' as variables;
+
 .button {
   margin-right: 20px;
   svg {
@@ -17,7 +19,19 @@
 
 .buttonsContainer {
   display: flex;
-  justify-content: flex-end;
-  margin-right: 10px;
-  margin-top: 30px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.menuBar {
+  background-color: #4ed0de;
+  padding: 5px 0;
+  padding-left: 5px;
+  margin-bottom: 20px;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  padding: 4px 6px;
 }

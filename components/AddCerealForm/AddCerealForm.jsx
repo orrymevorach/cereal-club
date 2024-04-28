@@ -5,19 +5,46 @@ import {
   getUserCerealSelectionIds,
   updateRecord,
 } from '@/lib/airtable';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './AddCerealForm.module.scss';
 import { AIRTABLE_TABLE_IDS } from '@/utils/constants';
+import Loader from '../shared/loader/loader';
+import clsx from 'clsx';
+import Image from 'next/image';
 
 export default function AddCerealForm() {
   const [cerealName, setCerealName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [cerealResponse, setCerealResponse] = useState([]);
 
-  const handleSubmitForm = async e => {
-    e.preventDefault();
+  useEffect(() => {
+    const getNutrition = async () => {
+      if (cerealName.length > 3) {
+        try {
+          const response = await fetch(
+            `https://api.spoonacular.com/food/products/search?query=${cerealName} cereal`,
+            {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': 'a722178493ff4ecd8a2b6483d0361585',
+              },
+            }
+          );
+          const data = await response.json();
+          setCerealResponse(data.products);
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+    };
+    getNutrition();
+  }, [cerealName]);
+
+  const handleSelect = async cerealSelection => {
     setIsLoading(true);
     await createField({
-      name: cerealName,
+      name: cerealSelection,
       type: 'number',
       options: { precision: 2 },
       tableId: AIRTABLE_TABLE_IDS.USER_CEREALS,
@@ -30,7 +57,7 @@ export default function AddCerealForm() {
         await updateRecord({
           tableId: AIRTABLE_TABLE_IDS.USER_CEREALS,
           recordId: id,
-          newFields: { [cerealName]: 0 },
+          newFields: { [cerealSelection]: 0 },
         });
       })
     );
@@ -38,16 +65,39 @@ export default function AddCerealForm() {
   };
 
   return (
-    <form action="#" onSubmit={handleSubmitForm} className={styles.container}>
-      <Input
-        value={cerealName}
-        label="Add A New Cereal"
-        handleChange={e => setCerealName(e.target.value)}
-        inputContainerClassNames={styles.input}
-      />
-      <Button isLight isLoading={isLoading}>
-        Submit
-      </Button>
+    <form
+      action="#"
+      className={clsx(styles.container, isLoading && styles.loading)}
+    >
+      {isLoading ? (
+        <Loader color="black" />
+      ) : (
+        <>
+          <Input
+            value={cerealName}
+            label="Add A New Cereal"
+            handleChange={e => setCerealName(e.target.value)}
+            inputContainerClassNames={styles.inputContainer}
+            classNames={styles.input}
+          />
+          {cerealResponse?.length ? (
+            <ul className={styles.list}>
+              {cerealResponse.map(({ id, title, image }) => {
+                return (
+                  <li key={id} onClick={() => handleSelect(title)}>
+                    {title}
+                    {image && (
+                      <Image src={image} className={styles.image} alt="" />
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            ''
+          )}
+        </>
+      )}
     </form>
   );
 }
