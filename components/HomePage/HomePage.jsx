@@ -77,13 +77,22 @@ export default function HomePage({ userCerealSelectionRecords }) {
                 Edit Scores
               </Button>
             ) : (
-              <Button
-                isLight
-                classNames={styles.button}
-                handleClick={handleSubmit}
-              >
-                Submit
-              </Button>
+              <>
+                <Button
+                  isLight
+                  classNames={styles.button}
+                  handleClick={handleSubmit}
+                >
+                  Submit
+                </Button>
+                <Button
+                  isLight
+                  classNames={styles.button}
+                  handleClick={() => setEditScores(false)}
+                >
+                  Cancel
+                </Button>
+              </>
             )}
           </div>
         )}
