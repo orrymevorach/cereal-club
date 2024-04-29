@@ -27,7 +27,7 @@ export default function AddCerealForm() {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
-                'x-api-key': 'a722178493ff4ecd8a2b6483d0361585',
+                'x-api-key': process.env.NEXT_PUBLIC_SPOONTACULAR_API_KEY,
               },
             }
           );
