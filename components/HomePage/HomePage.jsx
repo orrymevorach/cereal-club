@@ -4,7 +4,7 @@ import { faBars, faEdit, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './HomePage.module.scss';
 import { useState } from 'react';
-import Takeover from '../shared/Takeover/Takeover';
+import Takeover from '../shared/Takeover-v1/Takeover-v1';
 import { airtableBase } from '@/utils/airtable-utils';
 import { AIRTABLE_TABLES, AIRTABLE_TABLE_IDS } from '@/utils/constants';
 import AddCerealTakeover from '../AddCerealTakeover/AddCerealTakeover';
