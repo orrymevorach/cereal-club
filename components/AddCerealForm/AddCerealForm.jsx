@@ -82,12 +82,13 @@ export default function AddCerealForm() {
           />
           {cerealResponse?.length ? (
             <ul className={styles.list}>
-              {cerealResponse.map(({ id, title, image }) => {
+              {cerealResponse.map(cereal => {
+                const { id, title, image } = cereal;
                 return (
                   <li key={id} onClick={() => handleSelect(title)}>
                     {title}
                     {image && (
-                      <Image src={image} className={styles.image} alt="" />
+                      <img src={image} className={styles.image} alt="" />
                     )}
                   </li>
                 );
