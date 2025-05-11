@@ -35,3 +35,9 @@
   border: none;
   padding: 4px 6px;
 }
+
+@media screen and (max-width: variables.$mobile) {
+  .logo {
+    height: 200px;
+  }
+}
